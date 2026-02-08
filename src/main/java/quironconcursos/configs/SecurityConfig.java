@@ -1,4 +1,4 @@
-﻿package quironconcursos.configs;
+package quironconcursos.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -89,4 +89,3 @@ public class SecurityConfig {
     }
 
 }
-
