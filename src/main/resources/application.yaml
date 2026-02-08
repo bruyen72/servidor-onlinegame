@@ -39,3 +39,6 @@ app:
       refresh-token:
         secret-key: ${JWT_REFRESH_SECRET:quiron_refresh_key_123456}
         expire-length: ${JWT_REFRESH_EXPIRATION:604800000}
+      ticket-token:
+        secret-key: ${JWT_TICKET_SECRET:quiron_ticket_key_123456}
+        expire-length: ${JWT_TICKET_EXPIRATION:300000}
