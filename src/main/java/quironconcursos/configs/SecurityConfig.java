@@ -1,4 +1,4 @@
-package quironconcursos.configs;
+﻿package quironconcursos.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -73,7 +73,7 @@ public class SecurityConfig {
     private UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        config.addAllowedOrigin(urlFrontend);
+        config.addAllowedOrigin("*");
 
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
@@ -89,3 +89,4 @@ public class SecurityConfig {
     }
 
 }
+
