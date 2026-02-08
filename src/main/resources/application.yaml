@@ -1,8 +1,9 @@
 ﻿server:
-  port: ${PORT:8080}
+  port: \
+
 spring:
   profiles:
-    active: ${SPRING_PROFILE_ACTIVE:development}
+    active: \
   application:
     name: quiron-concursos
   datasource:
@@ -23,14 +24,9 @@ spring:
     multipart:
       max-file-size: 3MB
       max-request-size: 3MB
-
   h2:
     console:
       enabled: true
-
-app:
-  url:
-    frontend: 
 
 app:
   url:
