@@ -1,4 +1,4 @@
-server:
+﻿server:
   port: ${PORT:8080}
 spring:
   profiles:
@@ -9,7 +9,7 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
       dialect: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
   mail:
@@ -23,3 +23,7 @@ spring:
     multipart:
       max-file-size: 3MB
       max-request-size: 3MB
+
+  h2:
+    console:
+      enabled: true
