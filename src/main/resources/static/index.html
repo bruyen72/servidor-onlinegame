@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiron Concursos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1f36 0%, #0f1419 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animação de fundo */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(30, 42, 71, 0.4) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(30, 42, 71, 0.8);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .logo h1 {
+            color: #ffffff;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3));
+            }
+            to {
+                filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+            }
+        }
+
+        .logo .subtitle {
+            color: #b8c5d6;
+            font-size: 18px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #b8c5d6;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            background: rgba(42, 60, 90, 0.6);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            flex: 1;
+            min-width: 150px;
+            max-width: 180px;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: #ffd700;
+        }
+
+        .feature-title {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-text {
+            color: #b8c5d6;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .cta {
+            margin-top: 20px;
+        }
+
+        .cta-text {
+            color: #b8c5d6;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .app-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #1a1f36;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(255, 215, 0, 0.3);
+            background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            color: #b8c5d6;
+            font-size: 14px;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.8;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+                margin: 20px;
+            }
+
+            .logo h1 {
+                font-size: 36px;
+            }
+
+            .logo .subtitle {
+                font-size: 16px;
+            }
+
+            .description {
+                font-size: 16px;
+            }
+
+            .features {
+                gap: 15px;
+            }
+
+            .feature {
+                min-width: 120px;
+                padding: 15px;
+            }
+
+            .app-badges {
+                gap: 10px;
+            }
+
+            .badge {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 28px;
+            }
+
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="floating-elements">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+</div>
+
+<div class="container">
+    <div class="logo">
+        <h1>Quiron Concursos</h1>
+        <p class="subtitle">Sua aprovação é nossa missão</p>
+    </div>
+
+    <p class="description">
+        A plataforma completa para sua preparação em concursos públicos.
+        Estude com qualidade, pratique com eficiência e conquiste sua aprovação.
+    </p>
+
+    <div class="features">
+        <div class="feature">
+            <div class="feature-icon">📚</div>
+            <div class="feature-title">Questões</div>
+            <div class="feature-text">Milhares de questões atualizadas</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🎯</div>
+            <div class="feature-title">Simulados</div>
+            <div class="feature-text">Prepare-se com simulados reais</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📊</div>
+            <div class="feature-title">Estatísticas</div>
+            <div class="feature-text">Acompanhe seu desempenho</div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <p class="cta-text">Baixe nosso aplicativo e comece a estudar agora mesmo!</p>
+        <div class="app-badges">
+            <a href="#" class="badge">
+                📱 Download Mobile
+            </a>
+            <a href="#" class="badge">
+                🌐 Acesse Online
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Quiron Concursos. Todos os direitos reservados.</p>
+    </div>
+</div>
+
+<script>
+    // Adiciona um pouco de interatividade
+    document.addEventListener('DOMContentLoaded', function() {
+        const features = document.querySelectorAll('.feature');
+
+        features.forEach((feature, index) => {
+            setTimeout(() => {
+                feature.style.opacity = '0';
+                feature.style.transform = 'translateY(20px)';
+                feature.style.transition = 'all 0.6s ease';
+
+                setTimeout(() => {
+                    feature.style.opacity = '1';
+                    feature.style.transform = 'translateY(0)';
+                }, 100);
+            }, index * 200);
+        });
+    });
+
+    // Efeito parallax suave nos elementos flutuantes
+    window.addEventListener('mousemove', (e) => {
+        const elements = document.querySelectorAll('.floating-element');
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        elements.forEach((el, index) => {
+            const speed = (index + 1) * 0.5;
+            el.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+        });
+    });
+</script>
+</body>
+</html>

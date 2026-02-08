@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  mail:
+    host: ${SPRING_MAIL_HOST}
+    port: ${SPRING_MAIL_PORT}
+    username: ${SPRING_MAIL_USERNAME}
+    password: ${SPRING_MAIL_PASSWORD}
+app:
+  url:
+    frontend: ${APP_URL_FRONTEND}
+  security:
+    root-email: ${APP_SECURITY_ROOT_EMAIL}
+    token-jwt:
+      access-token:
+        secret-key: ${APP_SECURITY_TOKEN_JWT_ACCESS_TOKEN_SECRET_KEY}
+        expire-length: ${APP_SECURITY_TOKEN_JWT_ACCESS_TOKEN_EXPIRE_LENGTH}
+      ticket-token:
+        secret-key: ${APP_SECURITY_TOKEN_JWT_TICKET_TOKEN_SECRET_KEY}
+        expire-length: ${APP_SECURITY_TOKEN_JWT_TICKET_TOKEN_EXPIRE_LENGTH}
+      reset-password-token:
+        secret-key: ${APP_SECURITY_TOKEN_JWT_RESET_PASSWORD_TOKEN_SECRET_KEY}
+        expire-length: ${APP_SECURITY_TOKEN_JWT_RESET_PASSWORD_TOKEN_EXPIRE_LENGTH}

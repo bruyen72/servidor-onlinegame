@@ -1,0 +1,25 @@
+server:
+  port: ${PORT:8080}
+spring:
+  profiles:
+    active: ${SPRING_PROFILE_ACTIVE:development}
+  application:
+    name: quiron-concursos
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+  mail:
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 3MB
