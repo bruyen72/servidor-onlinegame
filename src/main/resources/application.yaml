@@ -7,25 +7,23 @@ spring:
   application:
     name: quiron-concursos
   datasource:
-    # Removido driver-class-name fixo para evitar conflito H2 vs Postgres
     url: ${SPRING_DATASOURCE_URL:jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1}
     username: ${SPRING_DATASOURCE_USERNAME:sa}
     password: ${SPRING_DATASOURCE_PASSWORD:}
   jpa:
     hibernate:
       ddl-auto: update
-      # Dialeto automatico
-    open-in-view: false
   h2:
     console:
       enabled: true
   flyway:
-    enabled: false # Desativado por enquanto para facilitar o primeiro boot online
+    enabled: false
 
 app:
   url:
     frontend: ${APP_URL_FRONTEND:*}
   security:
+    root-email: ${APP_SECURITY_ROOT_EMAIL:admin@quiron.com}
     token-jwt:
       access-token:
         secret-key: ${JWT_ACCESS_SECRET:quiron_secret_key_123456}
