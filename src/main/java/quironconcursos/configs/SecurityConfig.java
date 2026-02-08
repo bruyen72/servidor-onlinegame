@@ -1,4 +1,4 @@
-package quironconcursos.configs;
+﻿package quironconcursos.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -62,7 +62,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/admin/users").hasAnyAuthority("ROLE_ROOT", "ROLE_ADMINISTRATOR")
                         .requestMatchers(HttpMethod.POST, "/api/admin/send-email").hasAnyAuthority("ROLE_ROOT", "ROLE_ADMINISTRATOR")
 
-                        .requestMatchers("/ws").permitAll()
+                        .requestMatchers("/ws/**").permitAll()
 
                         .anyRequest().denyAll()
                 )
