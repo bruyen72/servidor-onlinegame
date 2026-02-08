@@ -42,3 +42,6 @@ app:
       ticket-token:
         secret-key: ${JWT_TICKET_SECRET:quiron_ticket_key_123456}
         expire-length: ${JWT_TICKET_EXPIRATION:300000}
+      reset-password-token:
+        secret-key: ${JWT_RESET_SECRET:quiron_reset_key_123456}
+        expire-length: ${JWT_RESET_EXPIRATION:900000}
