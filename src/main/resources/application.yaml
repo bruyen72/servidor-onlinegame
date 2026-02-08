@@ -31,3 +31,15 @@ spring:
 app:
   url:
     frontend: 
+
+app:
+  url:
+    frontend: \
+  security:
+    token-jwt:
+      access-token:
+        secret-key: \
+        expiration-time: \
+      refresh-token:
+        secret-key: \
+        expiration-time: \
