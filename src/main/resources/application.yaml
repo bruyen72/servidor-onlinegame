@@ -7,26 +7,20 @@ spring:
   application:
     name: quiron-concursos
   datasource:
-    driver-class-name: org.postgresql.Driver
+    # Removido driver-class-name fixo para evitar conflito H2 vs Postgres
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
   jpa:
     hibernate:
       ddl-auto: update
-      dialect: org.hibernate.dialect.PostgreSQLDialect
+      # Dialeto automatico
     open-in-view: false
-  mail:
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-  servlet:
-    multipart:
-      max-file-size: 3MB
-      max-request-size: 3MB
   h2:
     console:
       enabled: true
+  flyway:
+    enabled: false # Desativado por enquanto para facilitar o primeiro boot online
 
 app:
   url:
